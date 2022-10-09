@@ -1,2 +1,17 @@
-<h1>Pictures#index</h1>
-<p>Find me in app/views/pictures/index.html.erb</p>
+<h1>Picture一覧</h1>
+
+<table>
+  <tr>
+    <th>タイトル</th>
+    <th>内容</th>
+  </tr>
+
+<% @pictures.each do |picture| %>
+  <tr>
+    <td><%= picture.image %></td>
+    <td><%= picture.content %></td>
+		<td><%= picture.user %></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to '新しく写真を投稿する', new_picture_path %>
