@@ -13,6 +13,7 @@
 		<td><%= picture.user %></td>
 
 		<td><%= link_to '詳細を確認する', picture_path(picture.id) %></td>
+    <td><%= link_to "投稿する", edit_picture_path(picture.id) %></td>
   </tr>
 <% end %>
 </table>
