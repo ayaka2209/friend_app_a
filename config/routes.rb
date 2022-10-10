@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  # get 'pictures/index'
-  # get '/pictures', to: 'pictures#index'
-  resources :pictures
+  resources :pictures do
+    collection do
+      post :confirm
+    end
+    # get '/pictures', to: 'pictures#new'
+  end
 end

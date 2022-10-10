@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-  before_action :set_picture, only: [:show, :edit, :update]
+  before_action :set_picture, only: [:show, :edit, :update, :destroy]
   def index
     @pictures = Picture.all
   end
@@ -10,10 +10,14 @@ class PicturesController < ApplicationController
 
   def create
     @picture = Picture.new(picture_params)
-    if @picture.save
-    redirect_to picture_path, notice: "写真を投稿しました！"
-    else
+    if params[:back]
       render :new
+    else
+      if @picture.save
+        redirect_to pictures_path, notice: "写真を投稿しました！"
+      else
+      render :new
+      end
     end
   end
 
@@ -38,6 +42,12 @@ class PicturesController < ApplicationController
     @picture.destroy
     redirect_to pictures_path, notice:"投稿を削除しました！"
   end
+
+  def confirm
+    @picture = Picture.new(picture_params)
+    render :new if @picture.invalid?
+  end
+
 
   private
 

@@ -1,19 +1,19 @@
 <h1>Picture一覧</h1>
+<p><%= notice %></p>
 
 <table>
   <tr>
-    <th>タイトル</th>
     <th>内容</th>
   </tr>
 
 <% @pictures.each do |picture| %>
   <tr>
-    <td><%= picture.image %></td>
+    <%# <td><%= picture.image</td> %> %>
     <td><%= picture.content %></td>
-		<td><%= picture.user %></td>
+		<%# <td><%= picture.user.name %></td> %>
 
 		<td><%= link_to '詳細を確認する', picture_path(picture.id) %></td>
-    <td><%= link_to "投稿する", edit_picture_path(picture.id) %></td>
+    <td><%= link_to "投稿を編集する", edit_picture_path(picture.id), date: { confirm: '本当に編集しますか?' } %></td>
     <td><%= link_to '投稿を削除する', picture_path(picture.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
   </tr>
 <% end %>
