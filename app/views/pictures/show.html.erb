@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <h1>写真詳細画面</h1>
-<%# <p>タイトル: <%= @picture.title %></p> %>
+<%# <>タイトル: <%= @picture.title %>
 <p>
 <strong>Image:</strong>
-<%= image_tag @picture.image.url %>
+<%= image_tag @picture.image.url, class: "img" %>
 </p>
 <p>
   <strong>Content:</strong>

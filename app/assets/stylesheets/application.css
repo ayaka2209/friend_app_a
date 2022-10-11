@@ -21,3 +21,8 @@
 body {
 	background-color: burlywood;
 }
+
+img {
+	width: 60%;
+	height: 60%;
+}
