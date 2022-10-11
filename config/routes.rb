@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
+  root "users#new"
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :show]
   resources :pictures do
@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     end
     # get '/pictures', to: 'pictures#new'
   end
+
+
 end
